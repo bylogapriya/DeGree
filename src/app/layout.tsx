@@ -20,6 +20,9 @@ const comfortaa = Comfortaa({
   subsets: ["latin"],
 });
 
+export const metadata = {
+  manifest: '/manifest.json',
+}
 export const metadata: Metadata = {
   title: "DeGree",
   description: "Academic PWA Platform for Students",
