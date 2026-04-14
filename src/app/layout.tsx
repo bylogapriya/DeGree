@@ -24,6 +24,11 @@ export const metadata: Metadata = {
   title: "DeGree",
   description: "Academic PWA Platform for Students",
   manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "DeGree",
+  },
 };
 
 export default function RootLayout({
