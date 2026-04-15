@@ -4,30 +4,17 @@ import "./globals.css";
 import PwaRegister from "@/components/PwaRegister";
 import SupabaseListener from "@/components/SupabaseListener";
 
-const inter = Inter({ 
-  variable: "--font-inter", 
-  subsets: ["latin"] 
-});
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
+const mono = IBM_Plex_Mono({ weight: ["400", "700"], variable: "--font-mono", subsets: ["latin"] });
+const comfortaa = Comfortaa({ variable: "--font-comfortaa", subsets: ["latin"] });
 
-const mono = IBM_Plex_Mono({ 
-  weight: ["400", "700"], 
-  variable: "--font-mono", 
-  subsets: ["latin"] 
-});
-
-const comfortaa = Comfortaa({ 
-  variable: "--font-comfortaa", 
-  subsets: ["latin"] 
-});
-
-// 1. Export Viewport separately (New Next.js Standard)
 export const viewport: Viewport = {
   themeColor: "#9061CB",
   width: "device-width",
   initialScale: 1,
 };
 
-// 2. Export Metadata ONLY ONCE
+// ONLY ONE METADATA DEFINITION ALLOWED
 export const metadata: Metadata = {
   title: "DeGree",
   description: "Academic PWA Platform for Students",
@@ -43,11 +30,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${mono.variable} ${comfortaa.variable} antialiased`}>
       <body className="font-sans">
