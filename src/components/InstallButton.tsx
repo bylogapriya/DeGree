@@ -4,44 +4,53 @@ import { useState, useEffect } from 'react';
 
 export default function InstallButton() {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
-  const [browserSupport, setBrowserSupport] = useState("Checking...");
 
   useEffect(() => {
-    // 1. Check if the browser even supports this
-    if (!('beforeinstallprompt' in window)) {
-      setBrowserSupport("Not supported on this browser/OS");
-    }
-
+    // 1. Listen for the install prompt
     const handler = (e: any) => {
       e.preventDefault();
       setDeferredPrompt(e);
-      setBrowserSupport("Ready to Install!");
+      console.log("✅ PWA Install Prompt is ready!");
     };
 
     window.addEventListener('beforeinstallprompt', handler);
+
+    // 2. Also check if the app is already installed
+    window.addEventListener('appinstalled', () => {
+      setDeferredPrompt(null);
+      console.log('🚀 DeGree was installed!');
+    });
 
     return () => window.removeEventListener('beforeinstallprompt', handler);
   }, []);
 
   const handleInstall = async () => {
     if (!deferredPrompt) {
-      alert("Please use your browser menu: 'Add to Home Screen'");
+      // Fallback: If the code missed the event, use the browser menu
+      alert("Please tap the three dots (⋮) in Chrome and select 'Install App'");
       return;
     }
+    
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === 'accepted') setDeferredPrompt(null);
+    
+    if (outcome === 'accepted') {
+      setDeferredPrompt(null);
+    }
   };
+
+  // The button only shows if the browser says it's okay to install
+  if (!deferredPrompt) return null;
 
   return (
     <button 
       onClick={handleInstall}
-      className="flex items-center gap-3 p-3 bg-white rounded-2xl shadow-md border border-purple-100"
+      className="flex items-center gap-3 p-4 bg-white rounded-2xl shadow-xl border-2 border-purple-500 animate-bounce"
     >
-      <img src="/logo-degree.png" alt="Logo" className="w-8 h-8" />
+      <img src="/logo-degree.png" alt="Logo" className="w-10 h-10" />
       <div className="text-left">
-        <p className="text-xs font-bold text-purple-700">Install DeGree</p>
-        <p className="text-[8px] uppercase text-gray-400">{browserSupport}</p>
+        <p className="text-sm font-black text-purple-700">DOWNLOAD APP</p>
+        <p className="text-[10px] text-gray-500">Add DeGree to Home Screen</p>
       </div>
     </button>
   );
