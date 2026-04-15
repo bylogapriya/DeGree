@@ -41,19 +41,29 @@ export default function FileCard({ id, filename, url, filePath, externalLink, on
         }
       });
   };
-
-  // 2. PREVIEW ACTION
+// 1. PREVIEW ACTION
   const handlePreview = () => {
     const targetUrl = externalLink || url;
-    if (!targetUrl) return;
+    if (!targetUrl) return console.error("No URL found for preview");
+    
     trackDownload();
-    window.open(targetUrl, '_blank', 'noopener,noreferrer');
+
+    // Standard window.open can be blocked by browsers. 
+    // This approach is more "trusted" by mobile browsers.
+    const newWindow = window.open();
+    if (newWindow) {
+      newWindow.location.href = targetUrl;
+    } else {
+      // Fallback if pop-up is blocked
+      window.location.assign(targetUrl);
+    }
   };
 
-  // 3. FORCE DOWNLOAD ACTION
+  // 2. FORCE DOWNLOAD ACTION
   const handleDownload = async () => {
     const targetUrl = externalLink || url;
     if (!targetUrl) return;
+
     trackDownload();
 
     if (externalLink) {
@@ -62,23 +72,33 @@ export default function FileCard({ id, filename, url, filePath, externalLink, on
     }
 
     try {
-      // Fetching as blob forces the "Save As" dialog instead of just opening the tab
-      const response = await fetch(targetUrl);
+      // We add 'no-cache' to ensure we get the latest file
+      const response = await fetch(targetUrl, { method: 'GET', mode: 'cors', cache: 'no-cache' });
+      
+      if (!response.ok) throw new Error("Network response was not ok");
+
       const blob = await response.blob();
       const blobUrl = window.URL.createObjectURL(blob);
+      
       const link = document.createElement('a');
       link.href = blobUrl;
-      link.setAttribute('download', filename);
+      link.download = filename || "download"; // Ensure a filename exists
+      
       document.body.appendChild(link);
       link.click();
-      link.remove();
-      window.URL.revokeObjectURL(blobUrl);
+      
+      // Cleanup
+      setTimeout(() => {
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(blobUrl);
+      }, 100);
+      
     } catch (err) {
-      // Fallback if CORS prevents blob download
-      window.location.href = targetUrl;
+      console.error("Blob download failed, falling back to direct link:", err);
+      // ULTIMATE FALLBACK: If the blob/fetch fails, just open the link
+      window.open(targetUrl, '_blank');
     }
   };
-
   const handleDelete = async () => {
     setIsDeleting(true);
     try {

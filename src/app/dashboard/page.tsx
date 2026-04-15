@@ -31,7 +31,6 @@ export default function DepartmentPage() {
     { id: 'cheatsheets', label: 'Cheat Sheets', icon: '⚡' },
   ];
 
-  // Load user session
   useEffect(() => {
     const sessionStr = localStorage.getItem('userSession');
     if (sessionStr) {
@@ -82,7 +81,6 @@ export default function DepartmentPage() {
   return (
     <div className="w-full max-w-6xl mx-auto p-4 md:p-6 pb-20">
       <header className="mb-12">
-        {/* Top Branding Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
           <div className="animate-in fade-in slide-in-from-left duration-700">
              <h1 className="text-5xl font-black text-[#9061CB] tracking-tighter">
@@ -92,11 +90,8 @@ export default function DepartmentPage() {
                {userName || 'Student'}
              </p>
           </div>
-          
-          {/* Custom Install Button removed to fix build error */}
         </div>
 
-        {/* Department Controller */}
         <div className="bg-white/40 backdrop-blur-md rounded-[32px] p-6 border-2 border-v-blue/10 shadow-sm mb-8">
           {!isSwitchingDept ? (
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -130,7 +125,6 @@ export default function DepartmentPage() {
           )}
         </div>
 
-        {/* Semester Selector */}
         <div className="flex flex-wrap items-center gap-2 md:gap-3 bg-white/20 p-2 rounded-[30px] border border-white/40 shadow-inner overflow-x-auto">
           {semesters.map((sem) => (
             <button
@@ -151,7 +145,6 @@ export default function DepartmentPage() {
         </div>
       </header>
 
-      {/* Main Content Area */}
       {!selectedSemester ? (
         <div className="flex flex-col items-center justify-center py-24 text-center bg-white/10 backdrop-blur-md rounded-[48px] border-2 border-white/20 border-dashed">
             <span className="text-7xl mb-6">📂</span>
@@ -161,7 +154,6 @@ export default function DepartmentPage() {
       ) : (
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-5 duration-500">
           
-          {/* Filters & Search Header */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <h3 className="text-3xl font-black text-v-text tracking-tighter">
               Semester <span className="text-v-magenta">{selectedSemester}</span>
@@ -179,7 +171,6 @@ export default function DepartmentPage() {
             </div>
           </div>
 
-          {/* Category Pills */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {categories.map((cat) => (
               <button
@@ -197,7 +188,6 @@ export default function DepartmentPage() {
             ))}
           </div>
 
-          {/* Resource Display Vault */}
           <div className="bg-white/60 backdrop-blur-2xl rounded-[40px] border-4 border-white p-8 md:p-12 shadow-2xl relative min-h-[400px]">
              {isLoadingFiles ? (
                <div className="flex flex-col items-center justify-center py-20 animate-pulse">
@@ -214,8 +204,11 @@ export default function DepartmentPage() {
                  {filteredResources.map((file) => (
                    <FileCard 
                      key={file.id} 
-                     {...file} 
+                     id={file.id} 
                      filename={file.title} 
+                     url={file.file_url} // <--- CORRECTED PROP NAME
+                     filePath={file.file_path} // <--- CORRECTED PROP NAME
+                     externalLink={file.external_link} // <--- CORRECTED PROP NAME
                      onDeleted={(id) => setResources(prev => prev.filter(r => r.id !== id))}
                    />
                  ))}
