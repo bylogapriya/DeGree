@@ -18,6 +18,22 @@ export const metadata: Metadata = {
   title: "DeGree",
   description: "Academic PWA Platform for Students",
   manifest: "/manifest.json",
+  openGraph: {
+    title: "DeGree Academic Vault",
+    description: "Your centralized student resource platform.",
+    url: "https://your-project.vercel.app", 
+    siteName: "DeGree",
+    images: [
+      {
+        url: "/opengraph-image.png", 
+        width: 1200,
+        height: 630,
+        alt: "DeGree Platform Preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
   icons: {
     icon: "/logo-degree.png",
     apple: "/logo-degree.png",
