@@ -15,7 +15,6 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  // CRITICAL: This tells bots the base address of your site
   metadataBase: new URL('https://de-gree.vercel.app'), 
   title: "DeGree",
   description: "Academic PWA Platform for Students",
@@ -27,10 +26,10 @@ export const metadata: Metadata = {
     siteName: "DeGree",
     images: [
       {
-        url: "/opengraph-image.png", // Ensure this file is in your /public folder
+        url: "/custom-share.png", // <--- POINT TO YOUR NEW FILE NAME HERE
         width: 1200,
         height: 630,
-        alt: "DeGree Platform Preview",
+        alt: "DeGree Academic Vault",
       },
     ],
     locale: "en_US",
@@ -41,15 +40,3 @@ export const metadata: Metadata = {
     apple: "/logo-degree.png",
   },
 };
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en" className={`${inter.variable} ${mono.variable} ${comfortaa.variable} antialiased`}>
-      <body className="font-sans">
-        <SupabaseListener />
-        <PwaRegister />
-        {children}
-      </body>
-    </html>
-  );
-}
