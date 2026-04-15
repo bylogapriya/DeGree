@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "DeGree",
     images: [
       {
-        url: "/brand-share-v1.png", // <--- POINT TO YOUR NEW FILE NAME HERE
+        url: "/brand-share-v1.png", 
         width: 1200,
         height: 630,
         alt: "DeGree Academic Vault",
@@ -40,3 +40,20 @@ export const metadata: Metadata = {
     apple: "/logo-degree.png",
   },
 };
+
+// --- THIS WAS LIKELY MISSING OR BROKEN ---
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className={`${inter.variable} ${mono.variable} ${comfortaa.variable} antialiased`}>
+      <body className="font-sans">
+        <SupabaseListener />
+        <PwaRegister />
+        {children}
+      </body>
+    </html>
+  );
+}
