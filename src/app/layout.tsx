@@ -36,8 +36,9 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/logo-degree.png",
-    apple: "/logo-degree.png",
+    icon: "/brand-share-v1.png",
+    shortcut: "/brand-share-v1.png",
+    apple: "/brand-share-v1.png",
   },
 };
 

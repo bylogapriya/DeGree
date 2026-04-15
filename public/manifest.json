@@ -1,15 +1,15 @@
 {
-  "name": "DeGree Academic Vault",
+  "name": "DeGree",
   "short_name": "DeGree",
   "icons": [
     {
-      "src": "/logo-degree.png",
+      "src": "/brand-share-v1.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/logo-degree.png",
+      "src": "/brand-share-v1.png",
       "sizes": "512x512",
       "type": "image/png"
     }
