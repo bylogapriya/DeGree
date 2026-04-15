@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "DeGree",
     images: [
       {
-        url: "/custom-share.png", // <--- POINT TO YOUR NEW FILE NAME HERE
+        url: "/brand-share-v1.png", // <--- POINT TO YOUR NEW FILE NAME HERE
         width: 1200,
         height: 630,
         alt: "DeGree Academic Vault",
