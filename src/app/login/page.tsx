@@ -196,7 +196,7 @@ export default function LoginPage() {
           {isSignUp && (
             <div className="animate-in fade-in slide-in-from-top-2">
               <label className="mb-2 ml-2 block text-[10px] font-black uppercase tracking-widest text-v-magenta" htmlFor="name">
-                Identity Name
+                Name
               </label>
               <input
                 id="name"
@@ -212,7 +212,7 @@ export default function LoginPage() {
 
           <div>
             <label className="mb-2 ml-2 block text-[10px] font-black uppercase tracking-widest text-v-magenta" htmlFor="email">
-              University Email
+              Email
             </label>
             <input
               id="email"
@@ -220,14 +220,14 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full rounded-2xl border-2 border-v-blue/20 bg-white/50 px-6 py-4 focus:border-v-lavender focus:outline-none transition-all font-black text-v-text"
-              placeholder="student@university.edu"
+              placeholder="name@gmail.come"
               required
             />
           </div>
 
           <div>
             <label className="mb-2 ml-2 block text-[10px] font-black uppercase tracking-widest text-v-magenta" htmlFor="password">
-              Secure Key
+              Password
             </label>
             <input
               id="password"
@@ -243,7 +243,7 @@ export default function LoginPage() {
           {isSignUp && (
             <div className="animate-in fade-in slide-in-from-top-2">
               <label className="mb-2 ml-2 block text-[10px] font-black uppercase tracking-widest text-v-magenta" htmlFor="department">
-                Core Faculty
+                Core Department
               </label>
               <select
                 id="department"
