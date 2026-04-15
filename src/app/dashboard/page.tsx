@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback } from 'react';
 import FileCard from '@/components/FileCard';
 import { supabase } from '@/lib/supabaseClient';
 import { DEPARTMENTS } from '@/lib/constants';
-import InstallButton from '@/components/InstallButton'; // Your new PWA button
 
 export default function DepartmentPage() {
   const [viewingDept, setViewingDept] = useState<string>('');
