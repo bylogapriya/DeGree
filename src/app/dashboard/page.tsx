@@ -82,7 +82,7 @@ export default function DepartmentPage() {
   return (
     <div className="w-full max-w-6xl mx-auto p-4 md:p-6 pb-20">
       <header className="mb-12">
-        {/* Top Branding & Install Section */}
+        {/* Top Branding Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
           <div className="animate-in fade-in slide-in-from-left duration-700">
              <h1 className="text-5xl font-black text-[#9061CB] tracking-tighter">
@@ -93,10 +93,7 @@ export default function DepartmentPage() {
              </p>
           </div>
           
-          {/* Custom Install Button with Logo */}
-          <div className="animate-in fade-in slide-in-from-right duration-700">
-            <InstallButton /> 
-          </div>
+          {/* Custom Install Button removed to fix build error */}
         </div>
 
         {/* Department Controller */}
