@@ -15,17 +15,19 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  // CRITICAL: This tells bots the base address of your site
+  metadataBase: new URL('https://de-gree.vercel.app'), 
   title: "DeGree",
   description: "Academic PWA Platform for Students",
   manifest: "/manifest.json",
   openGraph: {
     title: "DeGree Academic Vault",
     description: "Your centralized student resource platform.",
-    url: "https://your-project.vercel.app", 
+    url: "https://de-gree.vercel.app", 
     siteName: "DeGree",
     images: [
       {
-        url: "/opengraph-image.png", 
+        url: "/opengraph-image.png", // Ensure this file is in your /public folder
         width: 1200,
         height: 630,
         alt: "DeGree Platform Preview",
