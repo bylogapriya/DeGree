@@ -20,15 +20,14 @@ const comfortaa = Comfortaa({
   subsets: ["latin"] 
 });
 
-// Viewport must be exported separately in newer Next.js versions
+// 1. Export Viewport separately (New Next.js Standard)
 export const viewport: Viewport = {
   themeColor: "#9061CB",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 };
 
+// 2. Export Metadata ONLY ONCE
 export const metadata: Metadata = {
   title: "DeGree",
   description: "Academic PWA Platform for Students",
