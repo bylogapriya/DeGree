@@ -14,7 +14,6 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-// ONLY ONE METADATA DEFINITION ALLOWED
 export const metadata: Metadata = {
   title: "DeGree",
   description: "Academic PWA Platform for Students",
@@ -22,11 +21,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo-degree.png",
     apple: "/logo-degree.png",
-  },
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
-    title: "DeGree",
   },
 };
 
