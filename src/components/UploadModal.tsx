@@ -105,6 +105,7 @@ export default function UploadModal({ isOpen, onClose }: UploadModalProps) {
         recordPayload.file_path = null;
       }
 
+      // Explicitly aligning column fields to pyq_type
       if (category === 'PYQs') {
         recordPayload.pyq_type = pyqType;
       }
