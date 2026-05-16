@@ -54,8 +54,9 @@ export default function DepartmentPage() {
         .eq('semester', selectedSemester)
         .eq('category', categoryLabel);
         
+      // FIXED: Swapped 'exam_type' out to target the correct database column 'pyq_type'
       if (selectedCategory === 'pyqs') {
-        query = query.eq('exam_type', pyqType); 
+        query = query.eq('pyq_type', pyqType); 
       }
 
       const { data, error } = await query.order('created_at', { ascending: false });
@@ -206,9 +207,9 @@ export default function DepartmentPage() {
                      key={file.id} 
                      id={file.id} 
                      filename={file.title} 
-                     url={file.file_url} // <--- CORRECTED PROP NAME
-                     filePath={file.file_path} // <--- CORRECTED PROP NAME
-                     externalLink={file.external_link} // <--- CORRECTED PROP NAME
+                     url={file.file_url} 
+                     filePath={file.file_path} 
+                     externalLink={file.external_link} 
                      onDeleted={(id) => setResources(prev => prev.filter(r => r.id !== id))}
                    />
                  ))}
