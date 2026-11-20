@@ -83,6 +83,10 @@ Screenshots of the application will be added here.
 |---|---|
 | Add `screenshots/login.png` | Add `screenshots/mobile-dashboard.png` |
 
+| Student–Admin Communication |
+|---|
+| Add `screenshots/student-admin-communication.png` |
+
 ## Technology Stack
 
 | Area | Technologies |
