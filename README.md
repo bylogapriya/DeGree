@@ -69,23 +69,21 @@ The application is built as a responsive Progressive Web App (PWA), making it ac
 
 ## Screenshots
 
-Screenshots of the application will be added here.
-
 | Landing Page | Student Dashboard |
 |---|---|
-| Add `screenshots/landing.png` | Add `screenshots/dashboard.png` |
+| ![Landing Page](screenshots/landing.png) | ![Dashboard](screenshots/dashboard.png) |
 
 | Resource Upload | Contribution Leaderboard |
 |---|---|
-| Add `screenshots/upload.png` | Add `screenshots/leaderboard.png` |
+| ![Upload](screenshots/upload.png) | ![Leaderboard](screenshots/leaderboard.png) |
 
-| Login Page | Mobile View |
+| Login Page | Mobile Dashboard |
 |---|---|
-| Add `screenshots/login.png` | Add `screenshots/mobile-dashboard.png` |
+| ![Login](screenshots/login.png) | ![Mobile Dashboard](screenshots/mobile-dashboard.png) |
 
-| Student–Admin Communication |
-|---|
-| Add `screenshots/student-admin-communication.png` |
+### Student–Admin Communication
+
+![Student Admin Communication](screenshots/student-admin-communication.png)
 
 ## Technology Stack
 
